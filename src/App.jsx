@@ -1,10 +1,14 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import NProgress from 'nprogress';
+import 'nprogress/nprogress.css'; // Import NProgress styles
 import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
 function App() {
+  useEffect(() => {
+    document.documentElement.classList.add('dark'); // Enable dark mode by default
+  }, []);
   // Initialize the useForm hook
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
