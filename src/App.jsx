@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <div>
-          <p className="text-8xl text-white font-bold underline">
-            Hello world!
-          </p>
+      <div className="bg-gray-900 text-white h-screen flex justify-center items-center">
+      <h1 className="text-4xl">Hello, Dark Mode!</h1>
+    </div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
