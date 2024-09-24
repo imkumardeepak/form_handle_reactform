@@ -1,17 +1,42 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import NProgress from 'nprogress';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
 function App() {
   // Initialize the useForm hook
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  // State to track the API response
+  const [response, setResponse] = useState(null);
 
   // Function to handle form submission
-  const onSubmit = (data) => {
-    console.log(data);
-    alert(JSON.stringify(data, null, 2)); // You can replace this with your submission logic
+  const onSubmit = async (data) => {
+    NProgress.start(); // Start the loading bar
+    try {
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      setResponse(result);
+      toast.success('Form submitted successfully!'); // Show success toast
+      reset(); // Reset the form after successful submission
+    } catch (error) {
+      toast.error('There was an error submitting the form.'); // Show error toast
+      console.error('Error:', error);
+    } finally {
+      NProgress.done(); // Stop the loading bar
+    }
   };
 
   return (
     <div className="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+      <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar closeOnClick pauseOnHover draggable theme="dark" /> {/* ToastContainer */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-md w-full">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
           Sign Up
@@ -73,6 +98,16 @@ function App() {
             Sign Up
           </button>
         </form>
+
+        {/* Display API response */}
+        {response && (
+          <div className="mt-6 p-4 bg-gray-100 rounded-lg">
+            <h3 className="text-lg font-medium text-gray-800">API Response:</h3>
+            <pre className="text-gray-600">
+              {JSON.stringify(response, null, 2)}
+            </pre>
+          </div>
+        )}
       </div>
     </div>
   );
