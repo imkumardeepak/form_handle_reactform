@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
 function App() {
   useEffect(() => {
-    document.documentElement.classList.add('dark'); // Enable dark mode by default
+    document.documentElement.classList.add('light'); // Enable dark mode by default
   }, []);
   // Initialize the useForm hook
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -39,7 +39,7 @@ function App() {
   };
 
   return (
-    <div className="bg-slate-900 min-h-screen flex items-center justify-center p-4">
+    <div className="bg-gray-200 dark:bg-gray-800 min-h-screen flex items-center justify-center p-4">
       <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar closeOnClick pauseOnHover draggable theme="dark" /> {/* ToastContainer */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl drop-shadow-xl p-6 max-w-md w-full">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">

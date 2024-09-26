@@ -14,27 +14,17 @@
   }
   
 
-  /* Custom Scroll Bar Styles for WebKit browsers (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 6px; /* Width of the scroll bar */
-}
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--background);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 5px;
+    background-color: #0070f3 !important;
+  }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the scroll bar track */
-  border-radius: 10px; /* Rounded corners for the track */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scroll thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the thumb on hover */
-}
-
-/* Custom Scroll Bar Styles for Firefox */
-* {
-  scrollbar-width: thin; /* Makes the scrollbar thinner */
-  scrollbar-color: #6b4cbe #f1f1f1; /* Thumb color and track color */
-}
