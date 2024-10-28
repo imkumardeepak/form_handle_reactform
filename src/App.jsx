@@ -4,6 +4,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css'; // Import NProgress styles
 import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
+import backgroundImage from './assets/wave-haikei.svg'; 
 
 function App() {
   useEffect(() => {
@@ -39,7 +40,21 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-200 dark:bg-gray-800 min-h-screen flex items-center justify-center p-4">
+    <div
+        className="min-h-screen flex items-center justify-center p-4">
+           {/* Blurred Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${backgroundImage})`, // Replace with the path to your image
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            // filter: 'blur(2px)',
+            // zIndex: -1, // Places the background behind other content
+          }}
+        ></div>
+
       <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar closeOnClick pauseOnHover draggable theme="dark" /> {/* ToastContainer */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl drop-shadow-xl p-6 max-w-md w-full">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
@@ -55,7 +70,7 @@ function App() {
               {...register('name', { required: 'Name is required' })}
               type="text"
               id="name"
-              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
               placeholder="John Doe"
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
@@ -73,7 +88,7 @@ function App() {
               })}
               type="email"
               id="email"
-              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
               placeholder="you@example.com"
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -88,7 +103,7 @@ function App() {
               {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Password must be at least 6 characters' } })}
               type="password"
               id="password"
-              className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              className="mt-1 mb-3 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"
               placeholder="********"
             />
             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
@@ -97,7 +112,7 @@ function App() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2  rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Sign Up
           </button>
