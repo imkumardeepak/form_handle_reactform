@@ -43,7 +43,6 @@ function App() {
 
     <div
         className="min-h-screen flex items-center justify-center p-4">
-           {/* Blurred Background Image */}
         <div
           className="absolute inset-0"
           style={{
