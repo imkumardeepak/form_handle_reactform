@@ -2,15 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
 
 /* Custom NProgress styles */
 #nprogress .bar {
-    background: #4f46e5; /* Change the color to match your theme */
+    background: #3b82df; /* Change the color to match your theme */
     height: 5px; /* Increase the height of the loading bar */
   }
   
   #nprogress .peg {
-    box-shadow: 0 0 10px #4f46e5, 0 0 5px #4f46e5;
+    box-shadow: 0 0 10px #3b82df, 0 0 5px #3b82df;
   }
   
 

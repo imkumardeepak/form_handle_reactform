@@ -55,7 +55,7 @@ function App() {
           }}
         ></div>
  
-      <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar closeOnClick pauseOnHover draggable theme="dark" /> {/* ToastContainer */}
+      <ToastContainer position="bottom-right" autoClose={6000} hideProgressBar closeOnClick pauseOnHover draggable theme="dark" /> {/* ToastContainer */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl drop-shadow-xl p-6 max-w-md w-full">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
           Sign Up
